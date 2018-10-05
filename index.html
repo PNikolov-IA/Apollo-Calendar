@@ -13,13 +13,17 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./app.css">
 </head>
 
 <body>
 
     <div class="container-fluid">
+
+
         <div class="row">
-            <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -36,14 +40,83 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Day<span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="#">Month<span class="sr-only">(current)</span></a></li>
                             <li><a href="#">Week</a></li>
-                            <li><a href="#">Year</a></li>
+                            <li><a href="#">Day</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
+
+        <!-- table div -->
+        <div class="row table-row">
+            <div class="container table-container">
+                <header>October 2018</header>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                            <th>Sun</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>16</td>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>23</td>
+                            <td>24</td>
+                            <td>25</td>
+                            <td>26</td>
+                            <td>27</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>30</td>
+                            <td>31</td>
+                            <td style="display:none">1</td>
+                            <td style="display:none">2</td>
+                            <td style="display:none">3</td>
+                            <td style="display:none">4</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <footer>All rights reserved</footer>
+
+
     </div>
 
 
