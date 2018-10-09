@@ -40,9 +40,9 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Month<span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">Week</a></li>
-                            <li><a href="#">Day</a></li>
+                            <li class="active" id='month-btn'><a href="#">Month<span class="sr-only">(current)</span></a></li>
+                            <li id='week-btn'><a href="#">Week</a></li>
+                            <li id='day-btn'><a href="#">Day</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -50,79 +50,25 @@
         </div>
 
         <!-- table div -->
-        <div class="row table-row">
             <div class="container table-container">
                 <header>October 2018</header>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>Mon</th>
-                            <th>Tue</th>
-                            <th>Wed</th>
-                            <th>Thu</th>
-                            <th>Fri</th>
-                            <th>Sat</th>
-                            <th>Sun</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>9</td>
-                            <td>10</td>
-                            <td>11</td>
-                            <td>12</td>
-                            <td>13</td>
-                            <td>14</td>
-                        </tr>
-                        <tr>
-                            <td>15</td>
-                            <td>16</td>
-                            <td>17</td>
-                            <td>18</td>
-                            <td>19</td>
-                            <td>20</td>
-                            <td>21</td>
-                        </tr>
-                        <tr>
-                            <td>22</td>
-                            <td>23</td>
-                            <td>24</td>
-                            <td>25</td>
-                            <td>26</td>
-                            <td>27</td>
-                            <td>28</td>
-                        </tr>
-                        <tr>
-                            <td>29</td>
-                            <td>30</td>
-                            <td>31</td>
-                            <td style="display:none">1</td>
-                            <td style="display:none">2</td>
-                            <td style="display:none">3</td>
-                            <td style="display:none">4</td>
-                        </tr>
+                <div id="tbl"></div>
 
-                    </table>
-                </div>
+
             </div>
-        </div>
         <footer>All rights reserved</footer>
 
 
     </div>
 
-
-    <!-- Latest compiled and minified JavaScript -->
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <!-- app.js -->
+    <script type="module" src="./app.js" ></script>
 </body>
 
 </html>
