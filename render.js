@@ -1,5 +1,5 @@
 import {time} from './time.js';
-
+import {generate} from './time.js';
 
 
 const addDailySlots = (table) => {
@@ -14,30 +14,24 @@ const addWeeklySlots = (table) => {
         table.append(calendarSlot);
     }
 }
-const getDaysInMonth = function(month,year) {   
-   return new Date(year, month, 0).getDate();
-  };
-const monthlength = getDaysInMonth(3,2020);  
 
 const render = {
-    renderMonthlyView: () => {
+    renderMonthlyView: (currentMonth, currentYear) => {
         const table = $('<table class="table table-bordered table-responsive"><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></table>');
-
         $('#tbl').append(table);
-        let dayscounter = 0;
-        for (let weeks = 1; weeks <= 5; weeks++) {            
+
+        let generateMonthDays = generate.generateCalendarDays(currentMonth, currentYear);
+        let counterDays = 0;
+
+        for (let weeks = 1; weeks < 6; weeks++) {
             const week = $('<tr></tr>')
             for (let days = 1; days <= 7; days++) {
-                if(dayscounter===monthlength){
-                    break;
-                }
-                dayscounter++;
-                const dayElement = $('<td></td>').append(`<div>${dayscounter}</div>`);
+                const dayElement = $('<td></td>').append(`<div>${generateMonthDays[counterDays]}</div>`);
                 week.append(dayElement);
+                counterDays++;
             }
             table.append(week);
         }
-
     },
     renderWeeklyView: () => {
         const table = $('<table class="table table-bordered table-responsive"><tr><th></th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></table>');
