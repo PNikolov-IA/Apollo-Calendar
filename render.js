@@ -14,18 +14,25 @@ const addWeeklySlots = (table) => {
         table.append(calendarSlot);
     }
 }
-
+const getDaysInMonth = function(month,year) {   
+   return new Date(year, month, 0).getDate();
+  };
+const monthlength = getDaysInMonth(3,2020);  
 
 const render = {
     renderMonthlyView: () => {
         const table = $('<table class="table table-bordered table-responsive"><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></table>');
 
         $('#tbl').append(table);
-
-        for (let weeks = 1; weeks <= 5; weeks++) {
+        let dayscounter = 0;
+        for (let weeks = 1; weeks <= 5; weeks++) {            
             const week = $('<tr></tr>')
             for (let days = 1; days <= 7; days++) {
-                const dayElement = $('<td></td>').append(`<div>${weeks*days}</div>`);
+                if(dayscounter===monthlength){
+                    break;
+                }
+                dayscounter++;
+                const dayElement = $('<td></td>').append(`<div>${dayscounter}</div>`);
                 week.append(dayElement);
             }
             table.append(week);
