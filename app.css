@@ -6,7 +6,10 @@ th {
     background-color: #aaa;
     text-align: center;
 }
-
+.img-responsive {
+    width: 30px;
+    height: 30px;
+}
 td {
     text-align: right;
 }
