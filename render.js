@@ -1,5 +1,6 @@
 import {time} from './time.js';
 import {generate} from './time.js';
+import {db} from './database.js';
 
 
 const addDailySlots = (table) => {
@@ -26,7 +27,13 @@ const render = {
         for (let weeks = 1; weeks < 6; weeks++) {
             const week = $('<tr></tr>')
             for (let days = 1; days <= 7; days++) {
-                const dayElement = $('<td></td>').append(`<div>${generateMonthDays[counterDays]}</div>`);
+                const events = db.find(currentYear, currentMonth, generateMonthDays[counterDays]);
+                let appendEventsHtml = '';
+                $.each(events, function(index, value) {
+                    appendEventsHtml += '<a href="javascript:;" class="event-item" data-json=\''+JSON.stringify(value)+'\'>'+value.title+'</a>';
+                });
+                let html = `<div> <a href="javascript:;" class="js-add-event" data-year="${currentYear}" data-month="${currentMonth + 1}" data-day="${generateMonthDays[counterDays]}">${generateMonthDays[counterDays]}</a> <div class="day-events">${appendEventsHtml}</div></div>`;
+                const dayElement = $('<td></td>').append(html);
                 week.append(dayElement);
                 counterDays++;
             }

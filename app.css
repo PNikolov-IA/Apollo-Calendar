@@ -10,9 +10,6 @@ th {
     width: 30px;
     height: 30px;
 }
-td {
-    text-align: right;
-}
 
 header {
     font-size: 1.5em;
@@ -30,4 +27,14 @@ footer {
     height: 10%;
 }
 
-
+.js-add-event {
+    display: block;
+    text-align: right;
+}
+.day-events {
+    min-height: 50px;
+}
+.event-item {
+    display: block;
+    margin: 10px 5px;
+}
