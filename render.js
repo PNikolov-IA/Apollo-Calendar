@@ -22,6 +22,7 @@ const render = {
         $('#tbl').append(table);
 
         let generateMonthDays = generate.generateCalendarDays(currentMonth, currentYear);
+        generate.currentMonth = generateMonthDays;
         let counterDays = 0;
 
         for (let weeks = 1; weeks < 6; weeks++) {
@@ -34,24 +35,32 @@ const render = {
                 });
                 let html = `<div> <a href="javascript:;" class="js-add-event" data-year="${currentYear}" data-month="${currentMonth + 1}" data-day="${generateMonthDays[counterDays]}">${generateMonthDays[counterDays]}</a> <div class="day-events">${appendEventsHtml}</div></div>`;
                 const dayElement = $('<td></td>').append(html);
+                //const dayElement = $('<td></td>').append(`<div>${generate.currentMonth[counterDays]}</div>`);
                 week.append(dayElement);
                 counterDays++;
             }
             table.append(week);
         }
     },
-    renderWeeklyView: () => {
+    
+    renderWeeklyView: (weekDays) => {
         const table = $('<table class="table table-bordered table-responsive"><tr><th></th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></table>');
-
         $('#tbl').append(table);
+
         const week = $('<tr></tr>')
         for (let days = 0; days <= 7; days++) {
-            const dayElement = $('<td></td>').append(`<div>${days}</div>`);
+            let dayElement = 0;
+            if (days > 0) {
+                dayElement = $('<td></td>').append(`<div>${generate.currentWeekDays[days - 1]}</div>`);
+            } else {
+                dayElement = $('<td></td>').append(`<div>${""}</div>`);
+            }
             week.append(dayElement);
         }
         table.append(week);
         addWeeklySlots(table);
     },
+
     renderDailyView: () => {
         const table = $(`<table class="table table-bordered table-responsive"><tr><th colspan="2">${time.getDayOfTheWeek()}</th></tr><tr><td colspan="2">${time.getDayOfTheMonth()}</td></tr></table>`);
 

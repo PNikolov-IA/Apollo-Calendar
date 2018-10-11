@@ -12,24 +12,77 @@ generate.currentMonthAndYear[1] = currentYear;
 $('header').text(`${time.getMonthByNumber(currentMonth)} ${currentYear}`)
 render.renderMonthlyView(generate.currentMonthAndYear[0], generate.currentMonthAndYear[1]);
 
+// ------ month ------------------------------------
 $('#month-btn').on('click', function (e) {
     $('#tbl').children().remove();
     $('li.active').removeClass('active');
     $('#month-btn').addClass('active');
     render.renderMonthlyView(generate.currentMonthAndYear[0], generate.currentMonthAndYear[1]);
 });
+
+$("#preview-btn").click(function (currentMonth, currentYear) {
+    [currentMonth, currentYear] = generate.prevMonth(generate.currentMonthAndYear[0], generate.currentMonthAndYear[1]);
+    generate.currentMonthAndYear[0] = currentMonth;
+    generate.currentMonthAndYear[1] = currentYear;
+
+    $('header').text(`${time.getMonthByNumber(currentMonth)} ${currentYear}`)
+    render.renderMonthlyView(currentMonth, currentYear);
+
+    $('#tbl').children().remove();
+    $('li.active').removeClass('active');
+    $('#month-btn').addClass('active');
+    render.renderMonthlyView(currentMonth, currentYear);
+});
+
+$("#next-btn").click(function (currentMonth, currentYear) {
+    [currentMonth, currentYear] = generate.nextMonth(generate.currentMonthAndYear[0], generate.currentMonthAndYear[1]);
+    generate.currentMonthAndYear[0] = currentMonth;
+    generate.currentMonthAndYear[1] = currentYear;
+
+    $('header').text(`${time.getMonthByNumber(currentMonth)} ${currentYear}`)
+    render.renderMonthlyView(currentMonth, currentYear);
+
+    $('#tbl').children().remove();
+    $('li.active').removeClass('active');
+    $('#month-btn').addClass('active');
+    render.renderMonthlyView(currentMonth, currentYear);
+});
+
+// ------- week --------------------------------------
 $('#week-btn').on('click', function (e) {
     $('#tbl').children().remove();
     $('li.active').removeClass('active');
     $('#week-btn').addClass('active');
-    render.renderWeeklyView();
+    generate.generateAllWeeksMatrix(generate.currentMonth, generate.allWeekDaysMatrix);
+    generate.firstWeek(generate.currentMonth);          // set to the firs week
+    //generate.currentDayWeek();                        // set to the week with the current date 
+    render.renderWeeklyView(generate.currentWeekDays);
 });
+
+$("#preview-btn-week").click( function (e) {
+    $('#tbl').children().remove();
+    $('li.active').removeClass('active');
+    $('#week-btn').addClass('active');
+    generate.prevWeek();                                  // change the week
+    render.renderWeeklyView(generate.currentWeekDays);
+});
+
+$("#next-btn-week").click( function (e) {
+    $('#tbl').children().remove();
+    $('li.active').removeClass('active');
+    $('#week-btn').addClass('active');
+    generate.nextWeek(); // change the week
+    render.renderWeeklyView(generate.currentWeekDays);
+});
+
+// --------- day ----------------------------------------
 $('#day-btn').on('click', function (e) {
     $('#tbl').children().remove();
     $('li.active').removeClass('active');
     $('#day-btn').addClass('active');
     render.renderDailyView();
 });
+
 $(document).on('click', '.js-add-event',function (e) {
     $('#addEventModal').find('form')
         .append('<input type="hidden" name="year" value="'+$(this).data('year')+'">')
