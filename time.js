@@ -69,7 +69,7 @@ const generate = {
 
         return daysArr;
     },
-    prevMonth: (currentMonth, currentYear) => {
+    prevMonth: function (currentMonth, currentYear) {
 
         if (currentMonth === 0) {
             currentYear = currentYear - 1;
@@ -82,10 +82,11 @@ const generate = {
         } else {
             currentMonth = currentMonth - 1;
         }
+        this.currentDay = 1;
 
         return [currentMonth, currentYear];
     },
-    nextMonth: (currentMonth, currentYear) => {
+    nextMonth: function (currentMonth, currentYear) {
 
         if (currentMonth === 11) {
             currentYear = currentYear + 1;
@@ -94,6 +95,7 @@ const generate = {
         }
 
         currentMonth = (currentMonth + 1) % 12;
+        this.currentDay = 1;
 
         return [currentMonth, currentYear];
     },
@@ -130,6 +132,11 @@ const generate = {
     },
 
     currentDayWeek: function (currentDate) {             // return the week contains the current date;
+
+        if(currentDate <= 2) {
+            this.firstWeek(this.currentMonth);
+            return;
+        }
         this.allWeekDaysMatrix.forEach(line => {
             line.forEach(day => {
                 if (currentDate === day) {
