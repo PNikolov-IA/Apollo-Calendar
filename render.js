@@ -62,8 +62,7 @@ const render = {
     },
 
     renderDailyView: () => {
-        const table = $(`<table class="table table-bordered table-responsive"><tr><th colspan="2">${time.getDayOfTheWeek()}</th></tr><tr><td colspan="2">${time.getDayOfTheMonth()}</td></tr></table>`);
-
+        const table = $(`<table class="table table-bordered table-responsive"><tr><th colspan="2">${generate.currentDay}</th></tr><tr><td colspan="2">${generate.currentDay}</td></tr></table>`);
         $('#tbl').append(table);
         addDailySlots(table);
     },

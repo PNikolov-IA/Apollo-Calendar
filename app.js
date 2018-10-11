@@ -54,8 +54,8 @@ $('#week-btn').on('click', function (e) {
     $('li.active').removeClass('active');
     $('#week-btn').addClass('active');
     generate.generateAllWeeksMatrix(generate.currentMonth, generate.allWeekDaysMatrix);
-    generate.firstWeek(generate.currentMonth);          // set to the firs week
-    //generate.currentDayWeek();                        // set to the week with the current date 
+    //generate.firstWeek(generate.currentMonth);                         // set to the firs week
+    generate.currentDayWeek(generate.currentDay);                        // set to the week with the current date 
     render.renderWeeklyView(generate.currentWeekDays);
 });
 
@@ -71,7 +71,7 @@ $("#next-btn-week").click( function (e) {
     $('#tbl').children().remove();
     $('li.active').removeClass('active');
     $('#week-btn').addClass('active');
-    generate.nextWeek(); // change the week
+    generate.nextWeek();                                   // change the week
     render.renderWeeklyView(generate.currentWeekDays);
 });
 
@@ -82,6 +82,25 @@ $('#day-btn').on('click', function (e) {
     $('#day-btn').addClass('active');
     render.renderDailyView();
 });
+
+$("#preview-day-btn").click(function () {    //p
+    generate.changeTheDayPrev();
+    generate.currentDayWeek(generate.currentDay);
+    $('#tbl').children().remove();
+    $('li.active').removeClass('active');
+    $('#day-btn').addClass('active');
+    render.renderDailyView();
+});
+
+$("#next-day-btn").click(function () {     //p
+    generate.changeTheDayNext();
+    $('#tbl').children().remove();
+    $('li.active').removeClass('active');
+    $('#day-btn').addClass('active');
+    render.renderDailyView();
+});
+
+//-------------------------------------------------------------
 
 $(document).on('click', '.js-add-event',function (e) {
     $('#addEventModal').find('form')

@@ -129,9 +129,7 @@ const generate = {
         });
     },
 
-    currentDayWeek: function () {             // return the week contains the current date;
-
-        let currentDate = now.getDate();
+    currentDayWeek: function (currentDate) {             // return the week contains the current date;
         this.allWeekDaysMatrix.forEach(line => {
             line.forEach(day => {
                 if (currentDate === day) {
@@ -201,11 +199,34 @@ const generate = {
         });
     },
 
+    // -------- Day --------------------------
+
+    changeTheDayPrev: function () {
+        if (this.currentDay > 1) {
+            this.currentDay = this.currentDay - 1;
+        }
+    },
+
+    changeTheDayNext: function () {
+        let maxDate = 0;
+        this.currentMonth.forEach(currDate => {
+            if (maxDate < currDate) {
+                maxDate = currDate;
+            }
+        });
+
+        if (this.currentDay < maxDate) {
+            this.currentDay = this.currentDay + 1;
+        }
+    },
+
     // -------- Data Exposed------------------
     currentMonth: [],
     currentMonthAndYear: [0, 0],
     allWeekDaysMatrix: [],
-    currentWeekDays: []
+    currentWeekDays: [],
+    currentDay: now.getDate(),    // initial value
+    firstMonthlyDay: 1
 };
 
 export {
