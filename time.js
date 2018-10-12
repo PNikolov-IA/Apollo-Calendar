@@ -133,7 +133,7 @@ const generate = {
 
     currentDayWeek: function (currentDate) {             // return the week contains the current date;
 
-        if(currentDate <= 2) {
+        if(currentDate < 2 || currentDate <= 2) {
             this.firstWeek(this.currentMonth);
             return;
         }
