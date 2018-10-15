@@ -1,0 +1,40 @@
+body {
+    padding-top: 70px;
+}
+
+th {
+    background-color: #aaa;
+    text-align: center;
+}
+.img-responsive {
+    width: 30px;
+    height: 30px;
+}
+
+header {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ccc;
+    color: #000;
+    text-align: center;
+    height: 10%;
+}
+
+.js-add-event {
+    display: block;
+    text-align: right;
+}
+.day-events {
+    min-height: 50px;
+}
+.event-item {
+    display: block;
+    margin: 10px 5px;
+}
