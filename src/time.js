@@ -1,6 +1,10 @@
 const now = new Date();
 
 const time = {
+    weekday: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+
+    months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+
     getDayOfTheWeek: () => {
 
         const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -133,7 +137,7 @@ const generate = {
 
     currentDayWeek: function (currentDate) {             // return the week contains the current date;
 
-        if(currentDate < 2 || currentDate <= 2) {
+        if(currentDate <= 2) {
             this.firstWeek(this.currentMonth);
             return;
         }
