@@ -15,6 +15,16 @@ const clearView = () => {
   $('li.active').removeClass('active');
 };
 
+const hidePrevNextButtons = () => {
+  $('#next-btn').hide();
+  $('#preview-btn').hide();
+};
+
+const showPrevNextButtons = () => {
+  $('#next-btn').show();
+  $('#preview-btn').show();
+};
+
 // ------- Initial-View load (monthly - View) ------------------------------
 $('header').text(`${time.getMonthByNumber(currentMonth)} ${currentYear}`);
 $('.table-container>button').addClass('month-context');
@@ -24,7 +34,7 @@ render.renderMonthlyView(generate.currentMonthAndYear[0], generate.currentMonthA
 // ------ Monthly-View load from the navbar ------------------------------------
 $('#month-btn').on('click', function(e) {
   clearView();
-  // eslint disable no-invalid-this
+  showPrevNextButtons();
   $($(this)).addClass('active');
   $('.table-container>button').addClass('month-context');
   $('.table-container>button').removeClass('week-context');
@@ -34,6 +44,7 @@ $('#month-btn').on('click', function(e) {
 // ------- Weekly-View load from the navbar --------------------------------------
 $('#week-btn').on('click', function(e) {
   clearView();
+  showPrevNextButtons();
   $($(this)).addClass('active');
   $('.table-container>button').addClass('week-context');
   $('.table-container>button').removeClass('month-context');
@@ -47,6 +58,7 @@ $('#week-btn').on('click', function(e) {
 // --------- Dayly-View load from the navbar----------------------------------------
 $('#day-btn').on('click', function(e) {
   clearView();
+  hidePrevNextButtons();
   $($(this)).addClass('active');
   render.renderDailyView(time.getDayOfTheWeek(), time.getDayOfTheMonth());
 });
@@ -54,6 +66,7 @@ $('#day-btn').on('click', function(e) {
 // -------------Daily-View load when date is clicked within the Monthly-View
 $('#tbl').on('click', 'td.day-in-month', function() {
   clearView();
+  hidePrevNextButtons();
   const dayOfMonth = $(this).attr('data-day');
   const dayOfWeek = $(this).attr('day-of-week');
   const [month, year] = $('header').text().split(' ');
