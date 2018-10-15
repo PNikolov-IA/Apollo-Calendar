@@ -52,13 +52,14 @@ const generate = {
             } else if (date > daysInTheMonth) {
               daysArr.push('');
             } else {
-              if (counter >= firstDay)
-                {daysArr.push(date);}
+              if (counter >= firstDay) {
+                daysArr.push(date);
+              }
               date++;
             }
             counter++;
           }
-        };
+        }
 
         if (date - 1 < daysInTheMonth) {
           const restDates = daysInTheMonth - (date - 1);

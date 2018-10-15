@@ -5,10 +5,7 @@ const db = {
     const filteredData = [];
 
     $.each(json, function(index, value) {
-      if (value.year == year
-        && value.month == month
-        && value.day == day
-        && value.hour ==hour) {
+      if (value.year == year && value.month == month && value.day == day && value.hour ==hour) {
         filteredData.push(value);
       }
     });
@@ -19,10 +16,7 @@ const db = {
     const slot = [];
 
     $.each(json, function(index, value) {
-      if (value.year == year
-        && value.month == month
-        && value.day == day
-        && value.hour ==hour) {
+      if (value.year == year && value.month == month && value.day == day && value.hour ==hour) {
         slot.push(value.title);
       }
     });
@@ -51,10 +45,7 @@ const db = {
     const json = db.read();
     const newJson = [];
     $.each(json, function(index, value) {
-      if (! (value.year == year
-        && value.month == month
-        && value.day == day
-        && value.hour == hour) ) {
+      if (! (value.year == year && value.month == month && value.day == day && value.hour == hour) ) {
         newJson.push(value);
       }
     });
