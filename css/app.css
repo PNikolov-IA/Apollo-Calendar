@@ -1,15 +1,23 @@
+html{
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+  }
 body {
     padding-top: 70px;
     background: #2d9ee0
 }
+
 
 th {
     background-color: #f2af58;
     text-align: center;
     font-size: 20px;
     color: #fff;
+    width: 12%;
 }
-.img-responsive {
+.img-responsive.img-rounded{
     width: 30px;
     height: 30px;
 }
@@ -18,13 +26,13 @@ header {
     font-size: 1.5em;
     text-transform: uppercase;
 }
-.js-add-event {
+.event-item {
     display: block;
     text-align: right;
     font-size: 20px;
     color: #2d9ee0;
 }
-.js-add-event:hover {
+.event-item:hover {
     text-decoration: none;
 }
 .day-events {
@@ -59,11 +67,17 @@ table{
 }
 
 footer img {
- width: 300px
+ width: 300px;
 }
 footer{
-    margin-top: -70px;
+    margin-top: 10px;
 }
 td{
     font-size: 20px;
+}
+
+td.daily-event:hover,
+td.event-item:hover,
+td.day-in-month {
+    cursor: pointer;
 }

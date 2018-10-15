@@ -59,8 +59,8 @@ const render = {
       const week = $('<tr></tr>');
       for (let days = 1; days <= 7; days++) {
         const eventCount = db.findEventsCount(currentYear, time.months[currentMonth], counterDays+1);
-        const displayCount = eventCount ? `<i class="fa fa-calendar" aria-hidden="true"></i> x ${eventCount}` : '';
-        const $dayElement = $(`<td class="day-in-month" data-year="${currentYear}" data-month="${currentMonth}" data-day="${counterDays+1}" day-of-week="${time.weekday[days]}"></td>`); $dayElement.append(`<div>${generateMonthDays[counterDays]}</div><div>${displayCount}</div>`);
+        const displayCount = eventCount ? `<i class="fa fa-calendar" aria-hidden="true" style="color:#2d9ee0"></i> x ${eventCount}` : '';
+        const $dayElement = $(`<td class="day-in-month" data-year="${currentYear}" data-month="${currentMonth}" data-day="${counterDays+1}" day-of-week="${time.weekday[days]}"></td>`); $dayElement.append(`<div>${generateMonthDays[counterDays]}</div><div style="color:#2d9ee0">${displayCount}</div>`);
         week.append($dayElement);
         counterDays++;
       }
